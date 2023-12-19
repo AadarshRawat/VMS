@@ -31,5 +31,5 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-In order to test the  flows, documented postman collection is attached.
+In order to test the  flows, documented postman collection is [attached](https://github.com/AadarshRawat/VMS/blob/main/VMS.postman_collection.json).
 
