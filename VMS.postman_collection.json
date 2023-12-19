@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "444e1563-ed17-4a59-8e8a-ba4e640037cb",
+		"name": "VMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30174773"
+	},
+	"item": [
+		{
+			"name": "Vendors",
+			"item": [
+				{
+					"name": "GetVendor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/api/vendors/3",
+						"description": "This API endpoint makes an HTTP GET request to retrieve details of a specific vendor with the ID 3. The request does not include a request body.\n\n### Response\n\n- Status: 200\n- The response contains details of the vendor including their ID, name, contact details, address, vendor code, on-time delivery rate, quality rating average, average response time, and fulfillment rate."
+					},
+					"response": []
+				},
+				{
+					"name": "listVendors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/api/vendors",
+						"description": "This endpoint makes an HTTP GET request to retrieve a list of vendors from the specified API. The request does not include a request body. The response will have a status code of 200, and it will contain an array of vendor objects. Each vendor object includes properties such as id, name, contact_details, address, vendor_code, on_time_delivery_rate, quality_rating_avg, average_response_time, and fulfillment_rate."
+					},
+					"response": []
+				},
+				{
+					"name": "CreateVendor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"User2\",\r\n    \"contact_details\": \"9435725543\",\r\n    \"address\": \"bellandur\",\r\n    \"vendor_code\": \"911\",\r\n    \"on_time_delivery_rate\": 0.0,\r\n    \"quality_rating_avg\": 0.0,\r\n    \"average_response_time\": 0.0,\r\n    \"fulfillment_rate\": 0.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/vendors/",
+						"description": "## Add a Vendor\n\nThis endpoint allows you to add a new vendor to the system.\n\n### Request Body\n\n- `name` (string, required): The name of the vendor.\n- `contact_details` (string, required): Contact details of the vendor.\n- `address` (string, required): Address of the vendor.\n- `vendor_code` (string, required): Unique code for the vendor.\n- `on_time_delivery_rate` (number, required): Rate of on-time delivery by the vendor.\n- `quality_rating_avg` (number, required): Average quality rating of the vendor.\n- `average_response_time` (number, required): Average response time of the vendor.\n- `fulfillment_rate` (number, required): Fulfillment rate of the vendor.\n    \n\n### Response\n\n- `id` (number): The unique identifier for the newly added vendor.\n- `name` (string): The name of the vendor.\n- `contact_details` (string): Contact details of the vendor.\n- `address` (string): Address of the vendor.\n- `vendor_code` (string): Unique code for the vendor.\n- `on_time_delivery_rate` (number): Rate of on-time delivery by the vendor.\n- `quality_rating_avg` (number): Average quality rating of the vendor.\n- `average_response_time` (number): Average response time of the vendor.\n- `fulfillment_rate` (number): Fulfillment rate of the vendor."
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateVendor",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"Kadugodi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/vendors/5/",
+						"description": "This endpoint makes an HTTP PATCH request to update the details of a specific vendor. In the last call, the request payload was sent in raw format with the address field being updated.\n\n### Request Body\n\n- `address` (string, required): The updated address of the vendor.\n    \n\n### Response\n\nThe response will have a status code of 200, indicating a successful update. The body of the response will include the updated details of the vendor, including the vendor's ID, name, contact details, address, vendor code, on-time delivery rate, quality rating average, average response time, and fulfillment rate."
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteVendor",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/api/vendors/6/",
+						"description": "This endpoint sends an HTTP DELETE request to [http://localhost:8000/api/vendors/6/](http://localhost:8000/api/vendors/6/) in order to delete the vendor with the ID 6.\n\nThe request does not include a request body.\n\nUpon successful execution, the response returns a status code of 200 with an empty response body."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PurchaseOrder",
+			"item": [
+				{
+					"name": "PurchaseOrderList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/purchase_orders?vendor_code=901",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders"
+							],
+							"query": [
+								{
+									"key": "vendor_code",
+									"value": "901"
+								}
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve purchase orders based on the provided vendor code. The request should include the vendor_code parameter in the query string. The response will contain an array of purchase orders with details such as ID, purchase order number, order date, delivery date, items, quantity, status, quality rating, issue date, acknowledgement date, and vendor information.\n\nFor example:\n\n```\nGET http://localhost:8000/api/purchase_orders?vendor_code=901\n\n ```\n\nThe response will be a JSON array of purchase order objects with the specified details."
+					},
+					"response": []
+				},
+				{
+					"name": "GetPurchaseOrder",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/api/purchase_orders/6/",
+						"description": "This endpoint makes an HTTP GET request to retrieve the details of a specific purchase order with the ID 7. The response will include the purchase order number, order date, delivery date, items, quantity, status, quality rating, issue date, acknowledgement date, and vendor information.\n\nThe response will have a status code of 200 if the request is successful. Below is an example of the response body structure:\n\n``` json\n{\n    \"id\": 0,\n    \"po_number\": \"\",\n    \"order_date\": \"\",\n    \"delivery_date\": \"\",\n    \"items\": {\n        \"id\": 0,\n        \"construction material\": \"\",\n        \"DateTime\": \"\"\n    },\n    \"quantity\": 0,\n    \"status\": \"\",\n    \"quality_rating\": 0,\n    \"issue_date\": \"\",\n    \"acknowledgement_date\": \"\",\n    \"vendor\": 0\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOrder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"po_number\": \"434\",\r\n        \"order_date\": \"2023-12-24T18:31:28.094659Z\",\r\n        \"delivery_date\": \"2023-12-30T18:20:05Z\",\r\n        \"items\": {\r\n            \"id\": 9,\r\n            \"construction material\": \"Bricks\",\r\n            \"DateTime\": \"29/12/2023\"\r\n        },\r\n        \"quantity\": 4,\r\n        \"status\": \"PENDING\",\r\n        \"quality_rating\": 9.0,\r\n        \"issue_date\": \"2023-12-08T18:31:15Z\",\r\n        \"acknowledgement_date\": \"2023-12-29T18:31:26Z\",\r\n        \"vendor\": 3\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/purchase_orders/",
+						"description": "This endpoint allows you to create a new purchase order by sending a POST request to the specified URL. The request should include the purchase order details such as the purchase order number, order date, delivery date, items, quantity, status, quality rating, issue date, acknowledgement date, and vendor.\n\nThe response to the request will include the details of the newly created purchase order, including the unique identifier (id), purchase order number, order date, delivery date, items, quantity, status, quality rating, issue date, acknowledgement date, and vendor.\n\nExample Request Body:\n\n``` json\n{\n    \"po_number\": \"\",\n    \"order_date\": \"\",\n    \"delivery_date\": \"\",\n    \"items\": {\n        \"id\": 0,\n        \"construction material\": \"\",\n        \"DateTime\": \"\"\n    },\n    \"quantity\": 0,\n    \"status\": \"\",\n    \"quality_rating\": 0,\n    \"issue_date\": \"\",\n    \"acknowledgement_date\": \"\",\n    \"vendor\": 0\n}\n\n ```\n\nExample Response Body:\n\n``` json\n{\n    \"id\": 0,\n    \"po_number\": \"\",\n    \"order_date\": \"\",\n    \"delivery_date\": \"\",\n    \"items\": {\n        \"id\": 0,\n        \"construction material\": \"\",\n        \"DateTime\": \"\"\n    },\n    \"quantity\": 0,\n    \"status\": \"\",\n    \"quality_rating\": 0,\n    \"issue_date\": \"\",\n    \"acknowledgement_date\": \"\",\n    \"vendor\": 0\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateOrder",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 9,\r\n    \"quality_rating\": 8.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/purchase_orders/8/",
+						"description": "This HTTP PATCH request is used to update a specific purchase order with the given ID. The request should include a payload with the raw request body type, containing the fields to be updated such as \"quantity\" and \"quality_rating\".\n\n### Request Body\n\n- `quantity`: The updated quantity for the purchase order.\n- `quality_rating`: The updated quality rating for the purchase order.\n    \n\n#### Example\n\n``` json\n{\n    \"quantity\": 0,\n    \"quality_rating\": 0\n}\n\n ```\n\n### Response\n\nUpon a successful update, the API responds with a status code of 200 and returns the updated purchase order object in the response body, including the updated \"quantity\" and \"quality_rating\" fields.\n\n#### Response Body\n\n- `id`: The unique identifier of the purchase order.\n- `po_number`: The purchase order number.\n- `order_date`: The date of the order.\n- `delivery_date`: The delivery date of the order.\n- `items`: Details of the items in the order, including the item ID, construction material, and date and time.\n- `quantity`: The updated quantity of the purchase order.\n- `status`: The status of the purchase order.\n- `quality_rating`: The updated quality rating of the purchase order.\n- `issue_date`: The date of issuance of the order.\n- `acknowledgement_date`: The date of acknowledgement of the order.\n- `vendor`: The vendor associated with the purchase order.\n    \n\n#### Example\n\n``` json\n{\n    \"id\": 0,\n    \"po_number\": \"\",\n    \"order_date\": \"\",\n    \"delivery_date\": \"\",\n    \"items\": {\n        \"id\": 0,\n        \"construction material\": \"\",\n        \"DateTime\": \"\"\n    },\n    \"quantity\": 0,\n    \"status\": \"\",\n    \"quality_rating\": 0,\n    \"issue_date\": \"\",\n    \"acknowledgement_date\": \"\",\n    \"vendor\": 0\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOrder",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/api/purchase_orders/8/",
+						"description": "This endpoint sends an HTTP DELETE request to [http://localhost:8000/api/purchase_orders/8/](http://localhost:8000/api/purchase_orders/8/) in order to delete the purchase order with the ID 8.\n\nThe request does not include a request body.\n\nUpon successful execution, the endpoint returns a status code of 200 with an empty response body."
+					},
+					"response": []
+				},
+				{
+					"name": "Acknowledement",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"acknowledgement_date\": \"2023-12-28T18:31:26Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/purchase_orders/8/acknowledge/",
+						"description": "This endpoint allows you to acknowledge a purchase order with a specific ID. When making a POST request to this endpoint with the purchase order ID in the URL, you can acknowledge the purchase order by providing the acknowledgement date in the request body.\n\n### Request Body\n\n- `acknowledgement_date` (string): The date of acknowledgement.\n    \n\n### Response\n\n- Status: 200 OK\n- `id` (integer): The ID of the acknowledged purchase order.\n- `po_number` (string): The purchase order number.\n- `order_date` (string): The date of the order.\n- `delivery_date` (string): The delivery date.\n- `items` (object): Details of the items in the purchase order, including ID, construction material, and date/time.\n- `quantity` (integer): The quantity of items in the purchase order.\n- `status` (string): The status of the purchase order.\n- `quality_rating` (integer): The quality rating of the items.\n- `issue_date` (string): The date of any issues with the purchase order.\n- `acknowledgement_date` (string): The date of acknowledgement.\n- `vendor` (integer): The ID of the vendor associated with the purchase order."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PerformanceEvaluation",
+			"item": [
+				{
+					"name": "PerformanceEvaluation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Token",
+								"value": "random_token_2023",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8000/api/vendors/2/performance",
+						"description": "This endpoint makes an HTTP GET request to retrieve the performance data for a specific vendor. The request should be made to [http://localhost:8000/api/vendors/2/performance](http://localhost:8000/api/vendors/2/performance).\n\nThe response to the request will have a status code of 200, and it will include an array of performance data objects. Each object in the array contains the following fields:\n\n- id: The unique identifier for the performance data.\n- date: The date for the performance data.\n- on_time_delivery_rate: The on-time delivery rate for the vendor.\n- quality_rating_avg: The average quality rating for the vendor.\n- average_response_time: The average response time for the vendor.\n- fulfillment_rate: The fulfillment rate for the vendor.\n- vendor: The identifier of the vendor.\n    \n\nPlease note that the request does not require a request body."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
